@@ -1,0 +1,49 @@
+{
+  "kmeans": {
+    "algorithm": "K-means",
+    "dataset": "Iris",
+    "samples": 150,
+    "features": 4,
+    "selected_k": 3,
+    "inertia": 140.965816630747,
+    "silhouette": 0.4589717867018717,
+    "adjusted_rand_index": 0.6201351808870379,
+    "normalized_mutual_info": 0.659486892724918,
+    "runtime_seconds": 0.011809007730334997,
+    "best_silhouette_k": 2
+  },
+  "svm": {
+    "algorithm": "SVM",
+    "dataset": "Wine",
+    "train_samples": 133,
+    "test_samples": 45,
+    "features": 13,
+    "selected_kernel": "rbf",
+    "accuracy": 0.9777777777777777,
+    "macro_f1": 0.9764982373678026,
+    "runtime_seconds": 0.0019007688388228416
+  },
+  "rbf": {
+    "algorithm": "RBF Network",
+    "dataset": "Wine",
+    "train_samples": 133,
+    "test_samples": 45,
+    "features": 13,
+    "hidden_centers": 9,
+    "accuracy": 1.0,
+    "macro_f1": 1.0,
+    "runtime_seconds": 0.028144497890025377
+  },
+  "mlp": {
+    "algorithm": "BP Network (MLP)",
+    "dataset": "Fashion-MNIST",
+    "train_samples": 12000,
+    "test_samples": 4000,
+    "features": 784,
+    "architecture": "MLP(256,128,64)",
+    "epochs": 30,
+    "accuracy": 0.86275,
+    "macro_f1": 0.8631246933237289,
+    "runtime_seconds": 4.9840538101270795
+  }
+}

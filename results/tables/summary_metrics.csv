@@ -1,0 +1,5 @@
+algorithm,dataset,samples,features,selected_k,inertia,silhouette,adjusted_rand_index,normalized_mutual_info,runtime_seconds,best_silhouette_k,train_samples,test_samples,selected_kernel,accuracy,macro_f1,hidden_centers,architecture,epochs
+K-means,Iris,150.0,4,3.0,140.965816630747,0.4589717867018717,0.6201351808870379,0.659486892724918,0.011809007730334997,2.0,,,,,,,,
+SVM,Wine,,13,,,,,,0.0019007688388228416,,133.0,45.0,rbf,0.9777777777777777,0.9764982373678026,,,
+RBF Network,Wine,,13,,,,,,0.028144497890025377,,133.0,45.0,,1.0,1.0,9.0,,
+BP Network (MLP),Fashion-MNIST,,784,,,,,,4.9840538101270795,,12000.0,4000.0,,0.86275,0.8631246933237289,,"MLP(256,128,64)",30.0

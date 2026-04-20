@@ -1,0 +1,13 @@
+{
+  "algorithm": "K-means",
+  "dataset": "Iris",
+  "samples": 150,
+  "features": 4,
+  "selected_k": 3,
+  "inertia": 140.965816630747,
+  "silhouette": 0.4589717867018717,
+  "adjusted_rand_index": 0.6201351808870379,
+  "normalized_mutual_info": 0.659486892724918,
+  "runtime_seconds": 0.011809007730334997,
+  "best_silhouette_k": 2
+}

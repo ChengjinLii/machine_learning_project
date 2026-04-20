@@ -1,0 +1,4 @@
+dataset,samples,features,classes,train_samples,test_samples,source
+Iris,150,4,3,,,UCI Machine Learning Repository
+Wine,178,13,3,133,45,UCI Machine Learning Repository
+Fashion-MNIST,70000,784,10,12000,4000,GitHub / Zalando Research release

@@ -1,0 +1,11 @@
+{
+  "algorithm": "SVM",
+  "dataset": "Wine",
+  "train_samples": 133,
+  "test_samples": 45,
+  "features": 13,
+  "selected_kernel": "rbf",
+  "accuracy": 0.9777777777777777,
+  "macro_f1": 0.9764982373678026,
+  "runtime_seconds": 0.0019007688388228416
+}
