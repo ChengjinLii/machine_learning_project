@@ -46,6 +46,23 @@ class IDXLabelReaderTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "Unexpected label magic number"):
             _read_idx_labels(self.path)
 
+    def test_empty_label_payload(self) -> None:
+        """A valid zero-count IDX label file should produce an empty array."""
+        self.write_label_file(struct.pack(">II", 2049, 0))
+
+        labels = _read_idx_labels(self.path)
+
+        self.assertEqual(labels.dtype, "uint8")
+        self.assertEqual(labels.shape, (0,))
+        self.assertEqual(labels.tolist(), [])
+
+    def test_zero_count_rejects_unexpected_payload(self) -> None:
+        """A zero-count header must not silently accept trailing bytes."""
+        self.write_label_file(struct.pack(">II", 2049, 0) + b"\x07")
+
+        with self.assertRaisesRegex(ValueError, "Label count mismatch"):
+            _read_idx_labels(self.path)
+
     def test_label_count_mismatch(self) -> None:
         header = struct.pack(">II", 2049, 2)
         for payload in (b"\x01", b"\x01\x02\x03"):
