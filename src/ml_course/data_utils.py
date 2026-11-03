@@ -140,7 +140,10 @@ def _read_idx_images(path: Path) -> np.ndarray:
 
 def _read_idx_labels(path: Path) -> np.ndarray:
     with gzip.open(path, "rb") as handle:
-        magic, count = struct.unpack(">II", handle.read(8))
+        header = handle.read(8)
+        if len(header) != 8:
+            raise ValueError(f"Truncated IDX label header in {path}")
+        magic, count = struct.unpack(">II", header)
         if magic != 2049:
             raise ValueError(f"Unexpected label magic number {magic} in {path}")
         buffer = handle.read()
