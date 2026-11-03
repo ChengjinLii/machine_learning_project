@@ -124,11 +124,17 @@ def download_fashion_mnist() -> dict[str, Path]:
 
 def _read_idx_images(path: Path) -> np.ndarray:
     with gzip.open(path, "rb") as handle:
-        header = handle.read(16)`n        if len(header) != 16:`n            raise ValueError(f"Truncated IDX image header in {path}")`n        magic, count, rows, cols = struct.unpack(">IIII", header)
+        header = handle.read(16)
+        if len(header) != 16:
+            raise ValueError(f"Truncated IDX image header in {path}")
+        magic, count, rows, cols = struct.unpack(">IIII", header)
         if magic != 2051:
             raise ValueError(f"Unexpected image magic number {magic} in {path}")
         buffer = handle.read()
     images = np.frombuffer(buffer, dtype=np.uint8)
+    expected_pixels = count * rows * cols
+    if images.size != expected_pixels:
+        raise ValueError(f"Image payload size mismatch in {path}: expected {expected_pixels}, got {images.size}")
     return images.reshape(count, rows * cols)
 
 
