@@ -34,7 +34,9 @@ machine_learning_project/
 ## 运行方式
 
 ```bash
-cd /data/chengjin/机器学习课程/machine_learning_project
+git clone https://github.com/ChengjinLii/machine_learning_project.git
+cd machine_learning_project
+python -m pip install -r requirements.txt
 python scripts/run_all.py
 ```
 
